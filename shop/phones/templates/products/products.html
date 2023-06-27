@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block sidebar %}
+    <ul>
+        <li {% if not category %}class="nav-link active"{% endif %}>
+            <a href="{% url 'phones:products' %}">Все категории</a>
+        </li>
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="nav-link active"{% endif %}>
+                <a href="{{ c.get_absolut_url }}">{{ c.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+{% endblock %}
+
+{% block content %}
+    {{ products }}
+{% endblock %}
