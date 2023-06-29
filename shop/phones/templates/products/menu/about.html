@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block sidebar %}
+    <ul>
+        <li {% if not category %}class="selected"{% endif %}>
+            <a href="{% url 'phones:products' %}">Все категории</a>
+        </li>
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <section class="our-story">
+        <h2>Наша история</h2>
+        <br>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
+        <br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
+        <br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
+        <br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
+
+        </p>
+    </section>
+    <section class="our-team">
+      <h2>Наша команда</h2>
+      <ul class="about-us">
+        <li>
+          <img src="{% static 'img/ant_img.png' %}" alt="Командный игрок номер 1">
+          <h3>Малой</h3>
+        </li>
+        <li>
+          <img src="{% static 'img/das_img.png' %}" alt="Командный игрок номер 2">
+          <h3>Дарья</h3>
+        </li>
+      </ul>
+    </section>
+{% endblock %}

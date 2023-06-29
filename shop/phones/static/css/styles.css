@@ -1,10 +1,11 @@
 body, html {
-      margin: 0;
-      padding: 0;
-    }
+  margin: 0;
+  padding: 0;
+}
 
-h1, h2, h3, h4, h5 , h6 {
-    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
 }
 
 .container {
@@ -19,20 +20,20 @@ h1, h2, h3, h4, h5 , h6 {
 }
 
 .sidebar ul li {
-    display: flex;
-    margin:0;
-    list-style:none;
-    padding:5px 7px;
+  display: flex;
+  margin: 0;
+  list-style: none;
+  padding: 5px 7px;
 }
 
 .sidebar li.selected {
-    background: #dcdcdc;
-    border-radius:5px;
+  background: #dcdcdc;
+  border-radius: 5px;
 }
 
 .sidebar a {
-    color: inherit;
-    text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .header {
@@ -65,12 +66,12 @@ h1, h2, h3, h4, h5 , h6 {
 }
 
 a {
-    text-decoration:none;
-    color:#5993bb;
+  text-decoration: none;
+  color: #5993bb;
 }
 
 a:hover {
-    color:#77b6e2;
+  color: #77b6e2;
 }
 
 .header li {
@@ -83,39 +84,111 @@ a:hover {
 }
 
 .product-list .item {
-    width:25%;
-    padding:10px 20px 10px 0;
-    float:left;
-    text-align:center;
-    line-height:1.2;
+  width: 25%;
+  padding: 10px 20px 10px 0;
+  float: left;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .product-list .item img {
-    width:100%;
-    margin-bottom:8px;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .product-detail {
-    text-align:justify;
+  display: flex;
+  text-align: justify;
 }
 
 .product-detail .price {
-    color:#333;
-    font-size:28px;
-    font-weight:bold;
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .product-detail img {
-    width:40%;
-    float:left;
-    padding:0 20px 20px 0;
+  width: 40%;
+  float: left;
+  padding: 0 20px 20px 0;
 }
 
 .product-detail h1 {
-    margin-bottom:0;
+  margin-bottom: 0;
 }
 
 .product-detail h2 {
-    margin-top:10px;
+  margin-top: 10px;
+}
+
+.selected-li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.miniature-li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+img.selected {
+  width: 300px;
+}
+
+img.miniature {
+  width: 50px;
+}
+
+div.description {
+  padding: 15px;
+  display: block;
+}
+
+div.images-carousel {
+  display: block;
+  padding: 15px;
+  margin: 25px;
+  max-width: 300px;
+}
+
+div.images-carousel ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+h2.product-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+section {
+  padding: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  width: auto;
+}
+
+section h2 {
+  font-size: 24px;
+  margin: 0px;
+  padding: 100px;
+}
+
+section h3 {
+  font-size: 24px;
+  margin: 0px;
+  padding: 50px;
+}
+
+section p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ul.about-us li {
+    display: inline-block;
+    margin: 0px 10px 10px;
 }
 

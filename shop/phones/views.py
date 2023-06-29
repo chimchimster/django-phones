@@ -25,3 +25,11 @@ def product_detail(request, id, slug):
         'product': product,
         'categories': categories,
     })
+
+
+def about(request):
+    categories = Category.objects.all()
+
+    return render(request, 'products/menu/about.html', {
+        'categories': categories
+    })

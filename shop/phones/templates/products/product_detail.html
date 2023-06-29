@@ -15,25 +15,53 @@
 {% endblock %}
 
 {% block content %}
+    <h2 class="product-title">
+        <a href="{{ product.category.get_absolute_url }}">{{ product.category.title }}</a>
+    </h2>
      <div class="product-detail">
-        <h2>
-            <a href="{{ product.category.get_absolute_url }}">{{product.name }}</a>
-        </h2>
-        <img src="{% if product.images.all.first.img %}{{ product.images.all.first.img.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
-        <h1>{{ product.title }}</h1>
-        <p class="price">₽{{ product.price }}</p>
 
-        {{ product.description|linebreaks }}
+        <div class="images-carousel">
+            <ul>
+            {% for img in product.images.all %}
+               {% with image=product.images.all %}
+                    <li {% if img == image.first %}class="selected-li"{% else %}class="miniature-li"{% endif %}>
+                       <img {% if img == image.first %}class="selected"{% else %}class="miniature"{% endif %}src="{% if img %}{{ img.img.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                   </li>
+                   {% if img == image.first %}<br>{% endif %}
+               {% endwith %}
+            {% endfor %}
+            </ul>
+        </div>
 
-         {{ product.images.all.count }}
-         {% if product.images.all.count > 1 %}
-            <script>
-                let button = document.createElement('button');
-                button.value = "Hello";
-                let image = document.querySelector('img');
-                div = document.getElementsByClassName('product-detail')[0];
-                div.appendChild(button);
-            </script>
-         {% endif %}
+         <div class="description">
+            <h1>{{ product.title }}</h1>
+            <p class="price">₽{{ product.price }}</p>
+
+            {{ product.description|linebreaks }}
+        </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let selected_image = document.getElementsByClassName('selected-li')[0];
+        let miniature_images = document.getElementsByClassName('miniature-li');
+        for (let i = 0;i<miniature_images.length;i++) {
+            miniature_images[i].addEventListener('click', () => {
+                miniature_images[i].onclick = change_images(miniature_images[i]);
+            });
+        }
+
+        function change_images(image) {
+            let selected_image_src = selected_image.querySelector('img').src;
+            let image_src = image.querySelector('img').src;
+
+            selected_image.querySelector('img').src = image_src;
+            image.querySelector('img').src = selected_image_src;
+
+        };
+    });
+
+
+
+    </script>
 {% endblock %}
