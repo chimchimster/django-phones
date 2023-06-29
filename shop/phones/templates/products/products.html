@@ -1,18 +1,32 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block sidebar %}
     <ul>
-        <li {% if not category %}class="nav-link active"{% endif %}>
+        <li {% if not category %}class="selected"{% endif %}>
             <a href="{% url 'phones:products' %}">Все категории</a>
         </li>
         {% for c in categories %}
-            <li {% if category.slug == c.slug %}class="nav-link active"{% endif %}>
-                <a href="{{ c.get_absolut_url }}">{{ c.title }}</a>
+            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
             </li>
         {% endfor %}
-        </ul>
+    </ul>
 {% endblock %}
 
 {% block content %}
-    {{ products }}
+    {% for product in products %}
+    <div id="main" class="product-list">
+        <div class="item">
+            <a href="{{ product.get_absolute_url }}">
+                <img src="{% if product.images.all.first.img %}{{ product.images.all.first.img.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+            </a>
+            <h2>
+                <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+            </h2>
+            <br>
+            ₽{{ product.price }}
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}

@@ -41,4 +41,4 @@ class Category(models.Model):
 class Image(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    img = models.ImageField(upload_to='media')
+    img = models.ImageField(upload_to='products/%Y/%m/%d')

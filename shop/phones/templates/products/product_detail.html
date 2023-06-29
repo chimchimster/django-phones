@@ -1,14 +1,39 @@
-{% extends 'shop/base.html' %}
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block sidebar %}
+    <ul>
+        <li {% if not category %}class="selected"{% endif %}>
+            <a href="{% url 'phones:products' %}">Все категории</a>
+        </li>
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
 
 {% block content %}
-    <div class="product-detail">
-        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
-        <h1>{{ product.title }}</h1>
+     <div class="product-detail">
         <h2>
-            {{ product.title }}
+            <a href="{{ product.category.get_absolute_url }}">{{product.name }}</a>
         </h2>
-        <p class="price">${{ product.price }}</p>
+        <img src="{% if product.images.all.first.img %}{{ product.images.all.first.img.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+        <h1>{{ product.title }}</h1>
+        <p class="price">₽{{ product.price }}</p>
 
-        {{ description }}
+        {{ product.description|linebreaks }}
+
+         {{ product.images.all.count }}
+         {% if product.images.all.count > 1 %}
+            <script>
+                let button = document.createElement('button');
+                button.value = "Hello";
+                let image = document.querySelector('img');
+                div = document.getElementsByClassName('product-detail')[0];
+                div.appendChild(button);
+            </script>
+         {% endif %}
     </div>
 {% endblock %}
