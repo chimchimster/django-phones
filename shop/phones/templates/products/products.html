@@ -9,20 +9,6 @@
     {% endif %}
 {% endblock %}
 
-
-{% block sidebar %}
-    <ul>
-        <li {% if not category %}class="selected"{% endif %}>
-            <a href="{% url 'phones:products' %}">Все категории</a>
-        </li>
-        {% for c in categories %}
-            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
-                <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endblock %}
-
 {% block content %}
     <div class="product-list">
     {% for product in products %}
@@ -43,26 +29,26 @@
 
 
 {% block domready %}
-    (function() {
+<!--    (function() {-->
 
-        $.ajax('http://127.0.0.1:8000/api/products/').done(function(response) {
-            console.log(response);
-            for (let i = 0;i < response.length;i++) {
-                create_elements(response[i]);
-            }
-        }).fail(function(error) {
-            console.log(error.message);
-        });
+<!--        $.ajax('http://127.0.0.1:8000/api/products/').done(function(response) {-->
+<!--            console.log(response);-->
+<!--            for (let i = 0;i < response.length;i++) {-->
+<!--                create_elements(response[i]);-->
+<!--            }-->
+<!--        }).fail(function(error) {-->
+<!--            console.log(error.message);-->
+<!--        });-->
 
-        function create_elements(response_element) {
-            let div = $('<div>').addClass('item');
-            let a_image = $('<a>').prop('href', `/${response_element.id}/${response_element.slug}`);
-            let image = $('<img>').prop('src', `${response_element.images[0].img}`);
-            image_title = $('<a>').prop('href', `/${response_element.id}/${response_element.slug}`).text(response_element.title);
-            let h2 = $('<h2>').append(image_title);
-            a_image.append(image);
-            div.append(a_image).append(h2).append('<br>').append(`₽${response_element.price}`);
-            $('.product-list').append(div)
-        }
-})();
+<!--        function create_elements(response_element) {-->
+<!--            let div = $('<div>').addClass('item');-->
+<!--            let a_image = $('<a>').prop('href', `/${response_element.id}/${response_element.slug}`);-->
+<!--            let image = $('<img>').prop('src', `${response_element.images[0].img}`);-->
+<!--            image_title = $('<a>').prop('href', `/${response_element.id}/${response_element.slug}`).text(response_element.title);-->
+<!--            let h2 = $('<h2>').append(image_title);-->
+<!--            a_image.append(image);-->
+<!--            div.append(a_image).append(h2).append('<br>').append(`₽${response_element.price}`);-->
+<!--            $('.product-list').append(div)-->
+<!--        }-->
+<!--})();-->
 {% endblock %}

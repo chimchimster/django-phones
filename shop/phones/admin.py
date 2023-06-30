@@ -22,4 +22,4 @@ class AdminCategory(admin.ModelAdmin):
 
 @admin.register(Image)
 class AdminImage(admin.ModelAdmin):
-    list_display = ['title', 'img']
+    list_display = ['img']

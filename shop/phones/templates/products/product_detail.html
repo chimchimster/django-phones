@@ -5,18 +5,6 @@
     {{ product.title }}
 {% endblock %}
 
-{% block sidebar %}
-    <ul>
-        <li {% if not category %}class="selected"{% endif %}>
-            <a href="{% url 'phones:products' %}">Все категории</a>
-        </li>
-        {% for c in categories %}
-            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
-                <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endblock %}
 
 {% block content %}
     <h2 class="product-title">
