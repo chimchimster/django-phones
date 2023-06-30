@@ -24,8 +24,9 @@
 {% endblock %}
 
 {% block content %}
+    <div class="product-list">
     {% for product in products %}
-    <div id="main" class="product-list">
+
         <div class="item">
             <a href="{{ product.get_absolute_url }}">
                 <img src="{% if product.images.all.first.img %}{{ product.images.all.first.img.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
@@ -36,8 +37,8 @@
             <br>
             ₽{{ product.price }}
         </div>
-    </div>
     {% endfor %}
+    </div>
 {% endblock %}
 
 
@@ -47,15 +48,21 @@
         $.ajax('http://127.0.0.1:8000/api/products/').done(function(response) {
             console.log(response);
             for (let i = 0;i < response.length;i++) {
-                let div = $('<div>').addClass('item');
-                let image = $('<img>').prop('src', JSON.stringify(response[i].images[0].img));
-                $('.content').append(div).append(image);
+                create_elements(response[i]);
             }
         }).fail(function(error) {
             console.log(error.message);
         });
 
-
-
+        function create_elements(response_element) {
+            let div = $('<div>').addClass('item');
+            let a_image = $('<a>').prop('href', `/${response_element.id}/${response_element.slug}`);
+            let image = $('<img>').prop('src', `${response_element.images[0].img}`);
+            image_title = $('<a>').prop('href', `/${response_element.id}/${response_element.slug}`).text(response_element.title);
+            let h2 = $('<h2>').append(image_title);
+            a_image.append(image);
+            div.append(a_image).append(h2).append('<br>').append(`₽${response_element.price}`);
+            $('.product-list').append(div)
+        }
 })();
 {% endblock %}
