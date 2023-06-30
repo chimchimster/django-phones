@@ -69,3 +69,6 @@ class Image(models.Model):
             img.thumbnail((450, 450))
 
         img.save(self.img.path)
+
+    def __str__(self):
+        return f'Изображение №{self.pk}'
