@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
 
+{% block title %}
+    {{ product.title }}
+{% endblock %}
+
 {% block sidebar %}
     <ul>
         <li {% if not category %}class="selected"{% endif %}>

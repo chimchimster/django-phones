@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
 
+{% block title %}
+     О нас
+{% endblock %}
+
 {% block sidebar %}
     <ul>
         <li {% if not category %}class="selected"{% endif %}>

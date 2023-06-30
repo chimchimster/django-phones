@@ -1,6 +1,15 @@
 {% extends 'layout.html' %}
 {% load static %}
 
+{% block title %}
+    {% if category %}
+        {{ category.title }}
+    {% else %}
+        Все категории
+    {% endif %}
+{% endblock %}
+
+
 {% block sidebar %}
     <ul>
         <li {% if not category %}class="selected"{% endif %}>
@@ -29,4 +38,24 @@
         </div>
     </div>
     {% endfor %}
+{% endblock %}
+
+
+{% block domready %}
+    (function() {
+
+        $.ajax('http://127.0.0.1:8000/api/products/').done(function(response) {
+            console.log(response);
+            for (let i = 0;i < response.length;i++) {
+                let div = $('<div>').addClass('item');
+                let image = $('<img>').prop('src', JSON.stringify(response[i].images[0].img));
+                $('.content').append(div).append(image);
+            }
+        }).fail(function(error) {
+            console.log(error.message);
+        });
+
+
+
+})();
 {% endblock %}

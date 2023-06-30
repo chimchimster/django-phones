@@ -4,11 +4,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap Sidebar Example</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <script type="text/javascript" src="{% static 'static_jquery/js/jquery.js' %}"></script>
 </head>
 <body>
-
     <div class="container">
         <div class="sidebar">
             <h1>Категории</h1>
@@ -29,5 +30,13 @@
           </div>
         </div>
     </div>
+
+<script>
+    $(document).ready(function () {
+        {% block domready %}
+        {% endblock %}
+    })
+</script>
+
 </body>
 </html>
