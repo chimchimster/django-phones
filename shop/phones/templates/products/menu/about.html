@@ -5,18 +5,6 @@
     О нас
 {% endblock %}
 
-{% block sidebar %}
-    <ul>
-        <li {% if not category %}class="selected"{% endif %}>
-            <a href="{% url 'phones:products' %}">Все категории</a>
-        </li>
-        {% for c in categories %}
-            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
-                <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endblock %}
 
 {% block content %}
     <div class="team-info">
@@ -24,7 +12,7 @@
         <div class="team-member">
             <img src="{% static 'img/ant_img.png' %}" alt="Team Member">
             <div class="member-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+                <p>5465</p>
             </div>
         </div>
         <div class="alert-block">
