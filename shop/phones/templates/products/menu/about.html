@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-     О нас
+    О нас
 {% endblock %}
 
 {% block sidebar %}
@@ -19,31 +19,56 @@
 {% endblock %}
 
 {% block content %}
-    <section class="our-story">
-        <h2>Наша история</h2>
-        <br>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
-        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
-        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
-        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus, eros quis finibus mattis, erat elit porttitor urna, eu lacinia urna sapien ac dolor. Phasellus ut tempor massa. Aenean et arcu vel ligula ultrices mattis a a tellus. Phasellus dictum pulvinar ultrices. Vivamus eget tortor facilisis, facilisis lectus nec, suscipit turpis. Nulla facilisi. Suspendisse mi elit, porttitor et ullamcorper non, mattis sed nibh. Integer accumsan cursus tincidunt.
-
-        </p>
-    </section>
-    <section class="our-team">
-      <h2>Наша команда</h2>
-      <ul class="about-us">
-        <li>
-          <img src="{% static 'img/ant_img.png' %}" alt="Командный игрок номер 1">
-          <h3>Малой</h3>
-        </li>
-        <li>
-          <img src="{% static 'img/das_img.png' %}" alt="Командный игрок номер 2">
-          <h3>Дарья</h3>
-        </li>
-      </ul>
-    </section>
+    <div class="team-info">
+        <h1 class="about-title">Our Team</h1>
+        <div class="team-member">
+            <img src="{% static 'img/ant_img.png' %}" alt="Team Member">
+            <div class="member-description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+            </div>
+        </div>
+        <div class="alert-block">
+            <div class="alert-content">
+                <h2>Important Note</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <div class="member-description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+            </div>
+            <img src="{% static 'img/das_img.png' %}" alt="Team Member">
+        </div>
+        <div class="alert-block">
+            <div class="alert-content">
+                <h2>Important Note</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+            </div>
+        </div>
+        <div class="works-block">
+            <h2>Our Works</h2>
+            <div class="work-item">
+                <img src="{% static 'img/work_1.jpg' %}" alt="Work">
+                <div class="work-description">
+                    <h3>Work Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="{% static 'img/work_2.jpg' %}" alt="Work">
+                <div class="work-description">
+                    <h3>Work Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+                </div>
+            </div>
+        </div>
+        <div class="guarantee-block">
+            <h2>Our Guarantee</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+        </div>
+        <div class="best-products-block">
+            <h2>Our Best Products</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor massa a risus sollicitudin varius.</p>
+        </div>
+    </div>
 {% endblock %}
